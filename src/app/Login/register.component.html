@@ -1,0 +1,48 @@
+<div class="card text-center">
+    <div class="card-header">
+        <h2> Registro </h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="col-md-6 mx-auto">
+        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+        <form [formGroup]="forma" (ngSubmit)="GuargarUser()">
+
+
+            <div class="floating-label-form-group controls mb-0 pb-2">
+                <label>Usuario</label>
+                <input formControlName="user" name="user" class="form-control" id="usuario" type="text" placeholder="usuario" required="required" data-validation-required-message="Ingrese el Usuario.">
+                <p class="help-block text-danger"></p>
+            </div>
+
+
+            <div class="floating-label-form-group controls mb-0 pb-2">
+                <label>Correo</label>
+                <input formControlName="email" name="email" class="form-control" id="email" type="email" placeholder="Correo" required="required" data-validation-required-message="Ingrese su Correo.">
+                <p class="help-block text-danger"></p>
+            </div>
+
+
+            <div class="floating-label-form-group controls mb-0 pb-2">
+                <label>Contraceña</label>
+                <input formControlName="password" name="password" class="form-control" id="password" type="password" placeholder="Contraceña" required="required" data-validation-required-message="Ingrese su Contraceña.">
+                <p class="help-block text-danger"></p>
+            </div>
+
+
+            <div class="floating-label-form-group controls mb-0 pb-2">
+                <label>Ingrese la Contraceña</label>
+                <input formControlName="password2" name="password2" class="form-control" id="password2" type="password" placeholder="Contraceña" required="required" data-validation-required-message="Ingrese de Nuevo su Contraceña.">
+                <p class="help-block text-danger"></p>
+            </div>
+
+            <br>
+            <div id="success"></div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-xl">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+</div>

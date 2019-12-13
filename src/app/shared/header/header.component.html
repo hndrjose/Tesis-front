@@ -1,0 +1,93 @@
+<style>
+    .menu {
+        background-color: rgb(102, 119, 119);
+        color: white;
+        padding: 0px;
+        position: 20px;
+    }
+</style>
+
+<div class="row-3" id="login">
+    <div>
+        <label> <a routerLink="/login"> Login </a>   | </label>
+        <!-- <label *ngIf="verifica"> <a routerLink="/perfil"> Perfil </a>   | </label>
+        <label *ngIf="verifica"> | <a> Cerrar Seccion </a>  </label> -->
+        <label> | <a routerLink="/register"> Registrate </a> | </label>
+        <label *ngIf="role == 'USER'"> | <a routerLink="/perfil"> Perfil del Usuario </a>  </label>
+        <label *ngIf="role == 'PROV'"> | <a routerLink="/perfilpro"> Perfil del Usuario Proveedor </a>  </label>
+    </div>
+</div>
+
+<!-- Navigation -->
+<!-- 
+
+<nav class="navbar navbar-expand-lg fixed-top menu" id="mainNav">
+    <div class="col-lg-12">
+        <a class="navbar-brand js-scroll-trigger">SerViTodo</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-black-50 rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+           Menu
+           <i class="fas fa-bars"></i>
+         </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Recursos</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-black-50" href="#about">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-black-50" href="#contact">Contactanos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="row-3 col-lg-4" id="buscar">
+    <div>
+        <div class="col-sm-12 mx-auto" style="width:100%; height:auto;">
+            <form>
+
+                <div class="form-group floating-label-form-group controls mb-0 pb-2 totheright">
+                    <label>Encontraras todo tipo de Servicios </label>
+                    <input class="form-control" id="buscar" type="text" placeholder="Buscar" required="required" data-validation-required-message="Please enter your name.">
+                    <p class="help-block text-danger"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+    <a class="navbar-brand" routerLink="/dasboard">ServiTodo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Secciones
+          </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Guias</a>
+                    <a class="dropdown-item" href="#">Politicas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li> -->
+        </ul>
+        <form (ngSubmit)="onkeypress(input.value)" class="form-inline my-2 my-lg-0">
+            <input #input (keyup.enter)="onkeypress(input.value)" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        </form>
+    </div>
+</nav>
