@@ -9,6 +9,7 @@ import { PageModule } from './pages/page.module';
 import { HeaderComponent } from './shared/header/header.component';
 import { LoginComponent } from './Login/login.component';
 import { RegisterComponent } from './Login/register.component';
+import { DecisionComponent } from './login/decision.component';
 
 // Ruteador
 import { APP_ROUTES } from './app.routes';
@@ -24,7 +25,6 @@ import {MatMenuModule} from '@angular/material/menu';
 // Servicios
 import { ServiceModule } from './services/service.module';
 import { MainListaComponent } from './pages/main-lista/main-lista.component';
-import { DecisionComponent } from './login/decision.component';
 
 
 
@@ -57,6 +57,6 @@ import { DecisionComponent } from './login/decision.component';
   ],
   providers: [MainListaComponent],
   bootstrap: [AppComponent],
-  exports: [LoginComponent, RegisterComponent, MatFormFieldModule]
+  exports: [LoginComponent, RegisterComponent, MatFormFieldModule, DecisionComponent]
 })
 export class AppModule { }
