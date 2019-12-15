@@ -1,2 +1,2 @@
 // tslint:disable-next-line:eofline
-export const URL_SERVICIO = 'http://localhost:3000';
+export const URL_SERVICIO = 'http://35.225.0.241:3000';
