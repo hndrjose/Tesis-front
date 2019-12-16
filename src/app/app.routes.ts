@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageComponent } from './pages/page.component';
 import { LoginComponent } from './Login/login.component';
 import { RegisterComponent } from './Login/register.component';
-import { DecisionComponent } from './login/decision.component';
+import { DecisionComponent } from './Login/decision.component';
 
 
 
