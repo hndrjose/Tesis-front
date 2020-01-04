@@ -1,55 +1,6 @@
 <!-- Contact Section Form -->
 <div class="row animated fadeIn">
-    <div class="wrapper col-lg-1 mx-auto">
-        <!-- Sidebar -->
-        <nav id="sidebar">
-
-            <div class="sidebar-header">
-                <h3>Menu</h3>
-            </div>
-            <ul class="list-unstyled components">
-                <p>Perfil</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pedidos</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a [routerLink]="['/pedidos', usuario[0].user]">Pedidos Recientes</a>
-                        </li>
-                        <li>
-                            <a href="#">Historial de Pedidos</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Mas opciones</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Herramientas</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#">Pagos</a>
-                        </li>
-                        <li>
-                            <a href="#">Cancelaciones</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </nav>
-
-    </div>
-
-
-
+    <!-- Cuerpo de perfil -->
     <div class="col-lg-6 mx-auto">
         <!--    To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
         <form #f="ngForm" (ngSubmit)="guardarDatos(f)" ngNativeValidate name="sentMessage" id="contactForm" novalidate="novalidate">

@@ -2,11 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 // Componentes
 import { AppComponent } from './app.component';
-import { PageModule } from './pages/page.module';
-import { HeaderComponent } from './shared/header/header.component';
+
 import { LoginComponent } from './Login/login.component';
 import { RegisterComponent } from './Login/register.component';
 import { DecisionComponent } from './Login/decision.component';
@@ -25,6 +23,13 @@ import {MatMenuModule} from '@angular/material/menu';
 // Servicios
 import { ServiceModule } from './services/service.module';
 import { MainListaComponent } from './pages/main-lista/main-lista.component';
+import { EntradaComponent } from './entrada/entrada.component';
+import { PageComponent } from './pages/page.component';
+import { SharedModule } from './shared/shared.module';
+
+import { PageModule } from './pages/page.module';
+import { DataproveeComponent } from './registro/dataprovee/dataprovee.component';
+import { DataclientComponent } from './registro/dataclient/dataclient.component';
 
 
 @NgModule({
@@ -32,11 +37,16 @@ import { MainListaComponent } from './pages/main-lista/main-lista.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    DecisionComponent
+    DecisionComponent,
+    EntradaComponent,
+    DataproveeComponent,
+    DataclientComponent
+  //  PageComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
+    SharedModule,
     PageModule,
     BrowserAnimationsModule,
     MatTreeModule,
@@ -49,7 +59,7 @@ import { MainListaComponent } from './pages/main-lista/main-lista.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MainListaComponent],
+  providers: [],
   bootstrap: [AppComponent],
   exports: [LoginComponent, RegisterComponent, MatFormFieldModule, DecisionComponent]
 })

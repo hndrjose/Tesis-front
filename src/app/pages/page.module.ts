@@ -61,6 +61,8 @@ import { PreviousComponent } from './previous/previous.component';
     ReactiveFormsModule,
     PipesModule
   ],
-  exports: [PageComponent]
+  exports: [PageComponent,
+    DasboardComponent
+  ]
 })
 export class PageModule { }

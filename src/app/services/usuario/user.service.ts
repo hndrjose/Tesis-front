@@ -13,6 +13,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { SubirarchivoService } from '../subirarchivo/subirarchivo.service';
+import { DatosEmail } from '../../models/datos.models';
 
 
 @Injectable({
@@ -22,6 +23,7 @@ export class UserService {
 
 usuario: Usuario;
 verificar: string;
+logeo: string;
 
   constructor( public http: HttpClient, public router: Router, public subirArchivo: SubirarchivoService ) {
     this.cargarStorage();
@@ -68,44 +70,65 @@ verificar: string;
      });
   }
 
-  cargarUsuarioId( id: number ) {
-    let url = URL_SERVICIO + '/usuario/SelecionUsuario/' + id;
-    return this.http.get(url)
-      .map( (resp: any) => {
-       return resp.usuarios;
-      });
-    // this.guardarStorage(resp.ok, resp.usuarios);
-  }
+    cargarUsuarioId( id: number ) {
+      let url = URL_SERVICIO + '/usuario/SelecionUsuario/' + id;
+      return this.http.get(url)
+        .map( (resp: any) => {
+         return resp.usuarios;
+        });
+      // this.guardarStorage(resp.ok, resp.usuarios);
+    }
+
+    cargarUsuarioUser(termino: string) {
+      let url = URL_SERVICIO + '/usuario/SelecionUser/' + termino;
+      return this.http.get(url)
+        .map( (resp: any) =>  resp.usuario );
+      // this.guardarStorage(resp.ok, resp.usuarios);
+    }
 
 
-  actualizarUsuario(usuario: Usuario ) {
+    actualizarUsuario(usuario: Usuario ) {
 
-    let url = URL_SERVICIO + '/usuario/editarUsuario/' + usuario[0].Iduser;
-    let verifica = Boolean;
-    console.log('Del service ');
-    console.log(usuario[0]);
-    return this.http.put( url, usuario[0] )
-                .map( (resp: any) => {
-                 verifica = resp.ok;
-                 if (verifica) {
-                  console.log('Registro Acualizado');
-                 }
-                 swal('Registro actualizado', 'success' );
-              });
-  }
+      let url = URL_SERVICIO + '/usuario/editarUsuario/' + usuario[0].Iduser;
+      let verifica = Boolean;
+      console.log('Del service ');
+      console.log(usuario[0]);
+      return this.http.put( url, usuario[0] )
+                  .map( (resp: any) => {
+                   verifica = resp.ok;
+                   if (verifica) {
+                    console.log('Registro Acualizado');
+                   }
+                   swal('Registro actualizado', 'success' );
+                });
+    }
 
 
-  guardarStorage(ok: string, usuario: Usuario) {
-    localStorage.setItem('ok', ok);
-    localStorage.setItem('user', usuario[0].user);
-    localStorage.setItem('usuario', JSON.stringify(usuario));
-    // this.usuario = usuario;
-    // this.token = token;
-   }
+    guardarStorage(ok: string, usuario: Usuario) {
+      localStorage.setItem('ok', ok);
+      localStorage.setItem('user', usuario[0].user);
+      localStorage.setItem('usuario', JSON.stringify(usuario));
+      this.usuario = usuario;
+      // this.token = token;
+    }
 
+    LogearUsuario( usuario: Usuario ) {
+      let url = URL_SERVICIO + '/login/logUser';
+      return this.http.post( url, usuario)
+           .map( (resp: any ) =>  {
+             this.verificar = resp.ok;
+             if (this.verificar) {
+                 this.guardarStorage( resp.ok, resp.usuarios );
+                 return true;
+              } else {
+                 console.log('No existe');
+                 return false;
+             }
+       });
+    }
    cargarStorage() {
     if ( localStorage.getItem('ok')) {
-     // this.token = localStorage.getItem('token');
+      this.verificar = localStorage.getItem('ok');
       this.usuario = JSON.parse( localStorage.getItem('usuario') );
     //  this.menu = JSON.parse( localStorage.getItem('menu') );
     } else {
@@ -121,28 +144,18 @@ verificar: string;
     this.verificar = '';
     localStorage.removeItem('ok');
     localStorage.removeItem('usuario');
-    this.router.navigate(['/dasboard']);
+    this.router.navigate(['/home']);
   }
 
   limpiarStorage() {
     localStorage.removeItem('ok');
     localStorage.removeItem('usuario');
   }
-  LogearUsuario( usuario: Usuario ) {
-    let url = URL_SERVICIO + '/login/logUser';
-    return this.http.post( url, usuario)
-         .map( (resp: any ) =>  {
-           this.verificar = resp.ok;
-           console.log(this.verificar);
-           if (this.verificar) {
-               console.log('Existe el Registro');
-               this.guardarStorage( resp.ok, resp.usuarios);
-               return true;
-            } else {
-               console.log('No existe');
-               return false;
-           }
-     });
+
+
+  estaLogueado() {
+    console.log('esta log: ' + this.verificar);
+    return ( this.verificar ) ? true : false;
   }
 
   cambiarImagen( archivo: File, id: string ) {
@@ -157,6 +170,20 @@ verificar: string;
           .catch( resp => {
             console.log( resp );
           }) ;
+  }
+
+  enviarEmail( mail: DatosEmail ) {
+    let url = URL_SERVICIO + '/formulario';
+    return this.http.post( url, mail)
+         .map( (resp: any ) =>  {
+           this.verificar = resp;
+           if (this.verificar) {
+               return true;
+            } else {
+               console.log('Error al Enviar Correo');
+               return false;
+           }
+     });
   }
 
 }

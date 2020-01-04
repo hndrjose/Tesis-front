@@ -13,6 +13,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { HeaderComponent } from './header/header.component';
 import { BuscarComponent } from './buscar/buscar.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SubheaderComponent } from './subheader/subheader.component';
 
 
 
@@ -31,11 +33,15 @@ import { PipesModule } from '../pipes/pipes.module';
   ],
   declarations: [
     HeaderComponent,
-    BuscarComponent
+    BuscarComponent,
+    SidebarComponent,
+    SubheaderComponent
   ],
   exports: [
     HeaderComponent,
-    BuscarComponent
+    BuscarComponent,
+    SidebarComponent,
+    SubheaderComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

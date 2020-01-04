@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   usuario: Usuario;
   verifica: string;
   role: string;
-  constructor( public usuarioService: UserService, public router: Router, public mainLista: MainListaComponent ) {
+  constructor( public usuarioService: UserService, public router: Router, ) { // public mainLista: MainListaComponent
     // this.verifica = localStorage.getItem('ok');
     // if (!this.verifica) {
       //   return;

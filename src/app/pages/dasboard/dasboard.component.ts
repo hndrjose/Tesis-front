@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { Usuario } from '../../models/usuarios.models';
 import { UserService } from '../../services/service.index';
 
@@ -13,15 +14,17 @@ export class DasboardComponent implements OnInit {
 
 usuario: Usuario;
 user: any;
+imagenTemp: any;
+valor: number;
 
   constructor( public usuarioService: UserService ) {
-    if (localStorage.getItem.length > 0) {
-    //  this.user = this.usuarioService.usuario;
-    console.log( 'Hay datos' );
-    } else {
-      console.log('No hay datos disponibles');
-    }
+      this.usuario = this.usuarioService.usuario;
+      this.valor = 50;
   }
+
+
+  forma: FormGroup;
+  verifica: any;
 
   ngOnInit() {
 

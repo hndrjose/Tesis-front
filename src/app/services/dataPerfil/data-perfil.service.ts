@@ -24,12 +24,12 @@ export class DataPerfilService {
 
   constructor(public http: HttpClient, public router: Router) { }
 
-  creardataPerfil( dataperfil: DataPerfil,  usuario: Usuario) {
-    const url = URL_SERVICIO + '/dataperfil/addDataPerfil/' + usuario[0].Iduser ;
+  creardataPerfil( dataperfil: DataPerfil) {
+    const url = URL_SERVICIO + '/dataperfil/addDataPerfil';
 
     return this.http.post( url, dataperfil)
     .map( (resp: any) => {
-        swal('Perfil Acualizado', usuario.user, 'success');
+        swal('Perfil Acualizado', 'success');
         return resp;
        })
        .catch( err => {

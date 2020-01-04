@@ -1,34 +1,13 @@
-<!-- <div class="col-12" id="log-form">
-    <form class="login-form">
-
-        <div class="col-6">
-            <label for="nombre">Nombre o Nickname:  </label>
-            <input name="nombre" type="text" class="form-control" placeholder="Nombre..">
-        </div>
-
-        <div class="col-6">
-            <label for="password">Contraceña:  </label>
-            <input name="password" type="text" class="form-control" placeholder="Contraceña">
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary">Primary</button>
-        </div>
-        <div class="col-6" id="buscar">
-            <label> Registrate  </label>
-        </div>
-    </form>
-</div> -->
-
-<div class="card text-center">
+<!-- <div class="card text-center">
     <div class="card-header">
         <h2> Login </h2>
     </div>
 </div>
 
 <div class="jumbotron">
-    <div class="col-md-6 mx-auto">
-        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-        <form ngNativeValidate #f="ngForm" (ngSubmit)="ingresar( f )">
+    <div class="col-md-6 mx-auto"> -->
+<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+<!-- <form ngNativeValidate #f="ngForm" (ngSubmit)="ingresar( f )">
 
 
             <div class="control-group">
@@ -53,5 +32,27 @@
             </div>
 
         </form>
+    </div>
+</div> -->
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <div class="fadeIn first">
+            <!-- <img src="https://www.b-cube.in/wp-content/uploads/2014/05/aditya-300x177.jpg" id="icon" alt="User Icon" /> -->
+            <h1>ServiTodo</h1>
+        </div>
+
+        <form ngNativeValidate #f="ngForm" (ngSubmit)="ingresar( f )">
+            <input ngModel name="user" type="text" id="usuario" class="fadeIn second" placeholder="user">
+            <input ngModel name="password" type="password" id="password" class="fadeIn third" placeholder="password">
+            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Ingresar</button>
+        </form>
+
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Retorna al Sitio</a>
+        </div>
+
     </div>
 </div>

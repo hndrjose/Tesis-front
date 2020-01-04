@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService, DataPerfilService, PedidosService } from './service.index';
+import { UserService, DataPerfilService, PedidosService, GuardsGuard, ValidarService } from './service.index';
 
 
+import { CommonModule } from '@angular/common';
 
 
 
@@ -16,7 +16,9 @@ import { UserService, DataPerfilService, PedidosService } from './service.index'
       providers: [
           UserService,
           DataPerfilService,
-          PedidosService
+          PedidosService,
+          GuardsGuard,
+          ValidarService
       ],
       declarations: [
       ]

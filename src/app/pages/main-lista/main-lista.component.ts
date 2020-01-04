@@ -45,8 +45,8 @@ param: string;
       this.limit = 2;
       this.dataPservice.cargarDataPerfil(termino, this.page).subscribe( ( resp: any ) =>  {
         this.data = resp;
+        console.log(this.data);
       });
-     // console.log(this.data.nombre);
 
     }
 
